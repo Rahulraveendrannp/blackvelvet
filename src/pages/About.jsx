@@ -1,63 +1,116 @@
+import { Check } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const About = () => {
   return (
-    <div className="pt-24 min-h-screen bg-[#fafafa]">
-      {/* Header */}
-      <div className="bg-[#f0f0f0] py-12 text-center mb-16">
-        <h1 className="text-4xl font-serif text-[#111]">About</h1>
+    <div className="pt-24 min-h-screen bg-[#1F1916] text-[#EAEAEA] font-sans pb-20">
+      
+      {/* Page Title */}
+      <div className="text-center py-12 md:py-16">
+        <h1 className="text-4xl md:text-5xl font-serif text-[#D4AF37] mb-4 uppercase tracking-widest">About Us</h1>
+        <div className="w-24 h-px bg-[#D4AF37] mx-auto opacity-50"></div>
       </div>
 
-      {/* Content Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
-        <div className="flex flex-col lg:flex-row items-center gap-16">
-          
-          {/* Image Side */}
-          <div className="flex-1 relative">
-            <div className="relative w-[300px] h-[300px] md:w-[500px] md:h-[500px] mx-auto">
-              {/* Decorative blobs/circles */}
-              <div className="absolute top-0 left-8 w-12 h-12 rounded-full bg-primary z-0"></div>
-              <div className="absolute top-12 left-0 w-6 h-6 rounded-full bg-primary z-0"></div>
-              <div className="absolute bottom-12 right-0 w-8 h-8 rounded-full bg-primary z-0"></div>
-              
-              {/* Main Image Container with blob shape */}
-              <div className="absolute inset-0 z-10 bg-primary/20 rounded-[40%_60%_70%_30%_/_40%_50%_60%_50%] overflow-hidden border-4 border-white shadow-2xl">
-                 <img 
-                   src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop" 
-                   alt="Yanka's Hair Pro Founder" 
-                   className="w-full h-full object-cover"
-                 />
-              </div>
-              
-              {/* Background accent blob */}
-              <div className="absolute inset-[-20px] z-0 bg-primary opacity-60 rounded-[50%_50%_40%_60%_/_60%_40%_50%_50%]"></div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24">
+        
+        {/* Founder Section */}
+        <section className="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
+          <div className="md:w-5/12">
+            <div className="relative">
+              <div className="absolute inset-0 border border-[#D4AF37] translate-x-4 translate-y-4 rounded-sm opacity-50"></div>
+              <img 
+                src="/avatar.jpg" 
+                alt="Kala Sree - Founder Avatar" 
+                className="relative z-10 w-full h-[500px] object-cover rounded-sm shadow-2xl transition-all duration-700 hover:brightness-110"
+              />
             </div>
           </div>
-
-          {/* Text Side */}
-          <div className="flex-1 space-y-6">
-            <h2 className="text-3xl md:text-4xl font-serif text-[#111]">Where Beauty Meets Confidence</h2>
-            
-            <p className="text-sm md:text-base text-gray-700 leading-relaxed">
-              Welcome to Black Velvet Indian Raw Hair, where beauty and confidence come alive through the artistry of hair. We are a team of passionate and skilled professionals dedicated to helping you unleash your inner radiance and express your unique style through the transformational power of hair.
+          <div className="md:w-7/12 space-y-6">
+            <h4 className="text-xs font-semibold tracking-widest uppercase text-[#A89F91]">About the Founder</h4>
+            <h2 className="text-3xl md:text-5xl font-serif text-[#D4AF37]">Kala Sree</h2>
+            <h3 className="text-xl font-medium text-white">Founder | 5th Generation Hair Expert</h3>
+            <p className="text-lg leading-relaxed text-[#D1C9BE]">
+              Black Velvet Indian Raw Hair is proudly led by Kala Sree, continuing a family legacy that has been rooted in the South Indian hair industry for over five decades. Built on generations of expertise, our brand is dedicated to delivering authentic, premium-quality Indian Raw Hair to customers around the world.
             </p>
-            
-            <h3 className="text-xl font-bold text-[#111] pt-4">Our Mission</h3>
-            
-            <p className="text-sm md:text-base text-gray-700 leading-relaxed pb-4">
-              At Black Velvet Indian Raw Hair, our mission is to elevate your hair game and empower you with the confidence that comes from feeling your best. We understand that your hair is not just a part of your appearance; it's a reflection of your personality and individuality. That's why we are committed to delivering exceptional hair extension services that are tailored to your preferences and needs.
-            </p>
+          </div>
+        </section>
 
-            <Link 
-              to="/extensions" 
-              className="inline-block bg-black text-white px-8 py-3 rounded-md font-medium hover:bg-gray-800 transition-colors"
-            >
-              Shop now
+        {/* Heritage Section */}
+        <section className="text-center max-w-4xl mx-auto space-y-6">
+          <h4 className="text-xs font-semibold tracking-widest uppercase text-[#A89F91]">Our Heritage</h4>
+          <h2 className="text-3xl md:text-4xl font-serif text-[#D4AF37]">50+ Years of Family Tradition</h2>
+          <p className="text-lg leading-relaxed text-[#D1C9BE]">
+            As a fifth-generation business, we carry forward the knowledge, values, and craftsmanship passed down through generations. Our deep understanding of raw hair sourcing allows us to provide only the finest quality South Indian Raw Hair while maintaining the highest standards of authenticity and consistency.
+          </p>
+        </section>
+
+        {/* Mission Section */}
+        <section className="bg-[#15110E] p-12 md:p-16 rounded-sm shadow-2xl border-t border-[#D4AF37] text-center max-w-5xl mx-auto">
+          <h4 className="text-xs font-semibold tracking-widest uppercase text-[#A89F91] mb-6">Our Mission</h4>
+          <p className="text-xl md:text-2xl font-serif text-[#EAEAEA] leading-relaxed italic">
+            "To provide 100% natural, unprocessed, and ethically sourced single-donor Indian Raw Hair while maintaining exceptional quality, transparency, and customer satisfaction."
+          </p>
+        </section>
+
+        {/* Promise Section */}
+        <section className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <h4 className="text-xs font-semibold tracking-widest uppercase text-[#A89F91] mb-4">Our Promise</h4>
+            <h2 className="text-3xl md:text-4xl font-serif text-[#D4AF37]">What We Guarantee</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            {[
+              "100% Natural & Unprocessed Hair",
+              "Single Head Donor Collection",
+              "No Harsh Chemicals",
+              "No Salon Waste Hair",
+              "Premium Quality Assurance",
+              "Worldwide Shipping"
+            ].map((promise, index) => (
+              <div key={index} className="flex items-center space-x-4 bg-[#15110E] p-6 rounded-sm shadow-lg border border-[#332A24] hover:border-[#D4AF37] transition-colors">
+                <div className="flex-shrink-0 bg-[#D4AF37]/10 p-2 rounded-full">
+                  <Check className="text-[#D4AF37]" size={24} />
+                </div>
+                <span className="text-lg font-medium text-[#EAEAEA]">{promise}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Commitment Section */}
+        <section className="text-center max-w-3xl mx-auto space-y-6 pt-12">
+          <h4 className="text-xs font-semibold tracking-widest uppercase text-[#A89F91]">Our Commitment</h4>
+          <p className="text-lg leading-relaxed text-[#D1C9BE]">
+            At Black Velvet Indian Raw Hair, every bundle reflects our dedication to purity, quality, and trust. We are committed to preserving the natural beauty of authentic Indian Raw Hair and delivering excellence to customers worldwide.
+          </p>
+          <div className="pt-8">
+            <Link to="/products" className="inline-block border border-[#D4AF37] text-[#D4AF37] px-10 py-4 font-semibold tracking-wider uppercase hover:bg-[#D4AF37] hover:text-[#111111] transition-colors backdrop-blur-sm bg-white/5">
+              Explore Our Collection
             </Link>
           </div>
+        </section>
 
+      </div>
+
+      {/* Footer Banner */}
+      <div className="mt-24 border-y border-[#332A24] bg-[#15110E] py-8">
+        <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-center items-center gap-6 md:gap-12 text-center divide-y md:divide-y-0 md:divide-x divide-[#332A24]">
+          <div className="pt-4 md:pt-0 md:px-12 w-full md:w-auto">
+            <span className="text-[#D4AF37] font-serif text-xl md:text-2xl block mb-1">50+ Years</span>
+            <span className="text-xs uppercase tracking-widest font-semibold text-[#A89F91]">Heritage</span>
+          </div>
+          <div className="pt-4 md:pt-0 md:px-12 w-full md:w-auto">
+            <span className="text-[#D4AF37] font-serif text-xl md:text-2xl block mb-1">5th Gen</span>
+            <span className="text-xs uppercase tracking-widest font-semibold text-[#A89F91]">Hair Experts</span>
+          </div>
+          <div className="pt-4 md:pt-0 md:px-12 w-full md:w-auto">
+            <span className="text-[#D4AF37] font-serif text-xl md:text-2xl block mb-1">Global</span>
+            <span className="text-xs uppercase tracking-widest font-semibold text-[#A89F91]">Worldwide Shipping</span>
+          </div>
         </div>
       </div>
+
     </div>
   );
 };

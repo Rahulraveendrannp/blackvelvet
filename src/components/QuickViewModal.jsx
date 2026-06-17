@@ -1,108 +1,136 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { X, ChevronDown } from 'lucide-react';
+import { productColors } from '../data/products';
 
-const colors = [
-  "#1 Jet Black",
-  "#1B Natural Black",
-  "#2 Dark Brown",
-  "#2B Soft Black - Unavailable",
-  "#4 Chocolate Brown - Unavailable",
-  "#5 Medium Brown - Unavailable",
-  "#14 Golden Blonde",
-  "#60 Platinum Blonde",
-];
-
-const QuickViewModal = ({ product, isOpen, onClose }) => {
-  const [selectedColor, setSelectedColor] = useState(colors[0]);
-  const [selectedLength, setSelectedLength] = useState("20\"");
+const QuickViewModal = ({ isOpen, product, onClose }) => {
+  const [selectedColor, setSelectedColor] = useState(productColors[0]);
+  const [selectedLength, setSelectedLength] = useState("");
   const [quantity, setQuantity] = useState(1);
+
+  useEffect(() => {
+    if (product && product.length) {
+      setSelectedLength(product.length.split(' - ')[0].replace('"', '') + '"');
+    }
+  }, [product]);
 
   if (!isOpen || !product) return null;
 
-  return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 backdrop-blur-sm p-4 md:p-8">
-      <div className="bg-white rounded-lg w-full max-w-4xl max-h-[90vh] overflow-hidden relative flex flex-col md:flex-row shadow-2xl">
+  // Generate some length options based on the product string "X - Y"
+  const lengthMatch = product.length.match(/(\d+)"\s*-\s*(\d+)"/);
+  let lengthOptions = ['10"', '12"', '14"', '16"', '18"', '20"', '22"', '24"'];
+  if (lengthMatch) {
+    const min = parseInt(lengthMatch[1]);
+    const max = parseInt(lengthMatch[2]);
+    lengthOptions = [];
+    for (let i = min; i <= max; i += 2) {
+      lengthOptions.push(`${i}"`);
+    }
+  }
 
-        {/* Close Button */}
-        <button
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+      <div className="bg-[#1F1916] w-full max-w-4xl max-h-[90vh] overflow-y-auto flex flex-col md:flex-row relative rounded-sm shadow-2xl border border-[#332A24] hide-scrollbar">
+        
+        {/* Close button */}
+        <button 
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 p-2 bg-white/80 rounded-full hover:bg-gray-100 transition-colors"
+          className="absolute top-4 right-4 z-10 bg-[#15110E] text-[#EAEAEA] p-2 rounded-full hover:bg-[#D4AF37] hover:text-[#111111] transition-colors"
         >
           <X size={20} />
         </button>
 
         {/* Scrollable Images Column */}
-        <div className="md:w-1/2 h-[40vh] md:h-[90vh] overflow-y-auto bg-gray-50 flex flex-col hide-scrollbar">
+        <div className="md:w-1/2 h-[40vh] md:h-[90vh] overflow-y-auto bg-[#15110E] flex flex-col hide-scrollbar border-r border-[#332A24]">
           {/* Main image */}
-          <img src={product.image} alt={product.name} className="w-full h-auto object-cover" />
-
+          <img src={product.image} alt={product.name} className="w-full aspect-[4/5] object-cover" />
+          
           {/* Dummy additional images to show scrolling */}
-          <img src="https://images.unsplash.com/photo-1596701047716-16314c4da2a6?q=80&w=1000&auto=format&fit=crop" alt="Details" className="w-full h-auto object-cover border-t-4 border-white" />
-          <img src="https://images.unsplash.com/photo-1599305090598-fe179d501227?q=80&w=1000&auto=format&fit=crop" alt="Details" className="w-full h-auto object-cover border-t-4 border-white" />
+          <img src="https://placehold.co/600x800/1F1916/D4AF37.png?text=Detail+Image+2" alt="Details" className="w-full aspect-[4/5] object-cover border-t border-[#332A24]" />
+          <img src="https://placehold.co/600x800/15110E/D4AF37.png?text=Detail+Image+3" alt="Details" className="w-full aspect-[4/5] object-cover border-t border-[#332A24]" />
         </div>
 
         {/* Product Details Column */}
-        <div className="md:w-1/2 p-8 overflow-y-auto max-h-[50vh] md:max-h-[90vh]">
-          <h2 className="text-2xl font-serif text-gray-900 mb-2">{product.name}</h2>
-          <p className="text-lg text-gray-600 mb-8">{product.price}</p>
+        <div className="md:w-1/2 p-8 flex flex-col hide-scrollbar">
+          <div className="mb-6">
+            <h2 className="text-2xl font-serif text-[#D4AF37] mb-2">{product.name}</h2>
+            <p className="text-xl text-[#EAEAEA]">{product.price}</p>
+          </div>
 
-          <div className="space-y-6">
-            {/* Color Select */}
+          <div className="w-full h-px bg-[#332A24] mb-6"></div>
+
+          <div className="space-y-5 flex-grow">
+            {/* Color Selection */}
             <div>
-              <label className="block text-sm text-gray-700 mb-2">Color</label>
+              <label className="block text-sm text-[#A89F91] mb-2">Color</label>
               <div className="relative">
-                <select
+                <select 
                   value={selectedColor}
                   onChange={(e) => setSelectedColor(e.target.value)}
-                  className="w-full appearance-none border border-gray-300 rounded px-4 py-2 bg-white focus:outline-none focus:border-black"
+                  className="w-full appearance-none border border-[#332A24] rounded px-4 py-3 bg-[#15110E] text-[#EAEAEA] focus:outline-none focus:border-[#D4AF37] transition-colors"
                 >
-                  {colors.map(color => (
-                    <option key={color} value={color} disabled={color.includes("Unavailable")}>
-                      {color}
-                    </option>
+                  {productColors.map(color => (
+                    <option key={color} value={color}>{color}</option>
                   ))}
                 </select>
-                <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" size={16} />
+                <ChevronDown className="absolute right-4 top-1/2 transform -translate-y-1/2 text-[#D4AF37] pointer-events-none" size={20} />
               </div>
             </div>
 
-            {/* Length Select */}
+            {/* Length Selection */}
             <div>
-              <label className="block text-sm text-gray-700 mb-2">Length</label>
+              <label className="block text-sm text-[#A89F91] mb-2">Length</label>
               <div className="relative">
-                <select
+                <select 
                   value={selectedLength}
                   onChange={(e) => setSelectedLength(e.target.value)}
-                  className="w-full appearance-none border border-gray-300 rounded px-4 py-2 bg-white focus:outline-none focus:border-black"
+                  className="w-full appearance-none border border-[#332A24] rounded px-4 py-3 bg-[#15110E] text-[#EAEAEA] focus:outline-none focus:border-[#D4AF37] transition-colors"
                 >
-                  <option>18"</option>
-                  <option>20"</option>
-                  <option>22"</option>
-                  <option>24"</option>
+                  {lengthOptions.map(length => (
+                    <option key={length} value={length}>{length}</option>
+                  ))}
                 </select>
-                <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none" size={16} />
+                <ChevronDown className="absolute right-4 top-1/2 transform -translate-y-1/2 text-[#D4AF37] pointer-events-none" size={20} />
               </div>
             </div>
 
-            {/* Quantity and Add to Cart */}
-            <div className="flex gap-4 pt-4">
-              <div className="flex items-center border border-gray-300 rounded">
-                <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="px-4 py-2 hover:bg-gray-50">-</button>
-                <span className="px-4 py-2 text-center w-12">{quantity}</span>
-                <button onClick={() => setQuantity(quantity + 1)} className="px-4 py-2 hover:bg-gray-50">+</button>
+            {/* Quantity */}
+            <div>
+              <label className="block text-sm text-[#A89F91] mb-2">Quantity</label>
+              <div className="flex items-center border border-[#332A24] rounded w-32 bg-[#15110E]">
+                <button 
+                  className="px-4 py-3 text-[#EAEAEA] hover:text-[#D4AF37] transition-colors"
+                  onClick={() => setQuantity(Math.max(1, quantity - 1))}
+                >-</button>
+                <input 
+                  type="text" 
+                  value={quantity} 
+                  readOnly
+                  className="w-full text-center bg-transparent text-[#EAEAEA] focus:outline-none"
+                />
+                <button 
+                  className="px-4 py-3 text-[#EAEAEA] hover:text-[#D4AF37] transition-colors"
+                  onClick={() => setQuantity(quantity + 1)}
+                >+</button>
               </div>
-              <button className="flex-1 bg-black text-white rounded font-medium hover:bg-gray-800 transition-colors flex justify-center items-center gap-2">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
-                Add to cart
+            </div>
+
+            {/* Action Buttons */}
+            <div className="pt-4 flex flex-col gap-3">
+              <button className="w-full bg-[#15110E] text-[#D4AF37] border border-[#D4AF37] py-4 rounded hover:bg-[#D4AF37] hover:text-[#111111] transition-colors font-medium">
+                Add to Cart
+              </button>
+              <button className="w-full bg-[#D4AF37] text-[#111111] py-4 rounded hover:bg-[#C8A45D] transition-colors font-medium">
+                Buy it now
               </button>
             </div>
-
+            
             {/* Payment Icons */}
-            <div className="flex flex-wrap gap-2 pt-6">
-              <img src="https://cdn.shopify.com/s/assets/payment_icons/visa-319d545c6fd255c9aad5eeaad21fd6f7f7b4f594113ce73e21e6ee342ab39878.svg" alt="Visa" className="h-6" />
-              <img src="https://cdn.shopify.com/s/assets/payment_icons/master-173035bc8124581983d4efa50cf8626e8553c2b311353fbf67485f9c1a2b88d1.svg" alt="Mastercard" className="h-6" />
-              <img src="https://cdn.shopify.com/s/assets/payment_icons/paypal-49e4c1e03244b6d2de0d270ca0d22dd15da6e92cc7266e93eb43762df5aa355d.svg" alt="PayPal" className="h-6" />
-              <img src="https://cdn.shopify.com/s/assets/payment_icons/apple_pay-f6db0077dc7c325b436ecbdcf254239100b35b70b1663bc7523d7c424901fa09.svg" alt="Apple Pay" className="h-6" />
+            <div className="flex flex-wrap gap-2 pt-4 items-center text-[#A89F91] font-medium text-sm">
+               <span>Secure Checkout:</span>
+               <div className="border border-[#332A24] px-2 py-1 rounded bg-[#15110E]">Visa</div>
+               <div className="border border-[#332A24] px-2 py-1 rounded bg-[#15110E]">Mastercard</div>
+               <div className="border border-[#332A24] px-2 py-1 rounded bg-[#15110E]">PayPal</div>
+               <div className="border border-[#332A24] px-2 py-1 rounded bg-[#15110E]">Apple Pay</div>
             </div>
 
           </div>

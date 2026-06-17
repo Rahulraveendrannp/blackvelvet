@@ -4,7 +4,7 @@ import Footer from './components/Footer';
 import WhatsAppIcon from './components/WhatsAppIcon';
 import Home from './pages/Home';
 import About from './pages/About';
-import Extensions from './pages/Extensions';
+import Products from './pages/Products';
 import ProductDetail from './pages/ProductDetail';
 import Contact from './pages/Contact';
 import ScrollToTop from './components/ScrollToTop';
@@ -19,7 +19,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/extensions" element={<Extensions />} />
+            <Route path="/products" element={<Products />} />
             <Route path="/product/:id" element={<ProductDetail />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>

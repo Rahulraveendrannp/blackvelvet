@@ -23,9 +23,9 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
-    { name: 'Extensions', path: '/extensions' },
+    { name: 'Products', path: '/products' },
     { name: 'Contact', path: '/contact' },
-    { name: 'Go pro', path: '/gopro' },
+    { name: 'Gallery', path: '/gallery' },
   ];
 
   return (
@@ -53,11 +53,11 @@ const Navbar = () => {
           </div>
 
           {/* Icons */}
-          <div className="hidden md:flex items-center space-x-5">
+          {/* <div className="hidden md:flex items-center space-x-5">
             <button className="hover:text-primary transition-colors hover:scale-110 transform"><Search size={20} /></button>
             <button className="hover:text-primary transition-colors hover:scale-110 transform"><User size={20} /></button>
             <button className="hover:text-primary transition-colors hover:scale-110 transform"><ShoppingBag size={20} /></button>
-          </div>
+          </div> */}
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center">
@@ -85,11 +85,11 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
-            <div className="flex space-x-6 px-3 py-4 mt-2 border-t border-gray-800">
+            {/* <div className="flex space-x-6 px-3 py-4 mt-2 border-t border-gray-800">
               <button className="hover:text-primary transition-colors"><Search size={20} /></button>
               <button className="hover:text-primary transition-colors"><User size={20} /></button>
               <button className="hover:text-primary transition-colors"><ShoppingBag size={20} /></button>
-            </div>
+            </div> */}
           </div>
         </div>
       )}
