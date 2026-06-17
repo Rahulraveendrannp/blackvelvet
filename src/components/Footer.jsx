@@ -33,7 +33,7 @@ const Footer = () => {
             <h4 className="text-lg font-serif font-semibold mb-6 text-[#D4AF37]">Order Now</h4>
             <div className="space-y-4 text-sm text-[#A89F91]">
               <p>Telephone: <a href="tel:+15551234567" className="hover:text-[#D4AF37] transition-colors">+1 (555) 123-4567</a></p>
-              <p>Fax: +1 (555) 123-4568</p>
+              <p>Fax: +1 (555) 123-45689</p>
               <p><a href="mailto:sales@blackvelvet.com" className="hover:text-[#D4AF37] transition-colors underline">sales@blackvelvet.com</a></p>
               <p><Link to="/" className="hover:text-[#D4AF37] transition-colors underline">www.blackvelvet.com</Link></p>
             </div>
