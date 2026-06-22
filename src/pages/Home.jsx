@@ -7,7 +7,7 @@ import { products } from '../data/products';
 const heroImages = [
   "/bg1.png",
   "https://images.unsplash.com/photo-1519699047748-de8e457a634e?q=80&w=2000&auto=format&fit=crop",
-  "https://images.unsplash.com/photo-1562322140-8baeececf3df?q=80&w=2000&auto=format&fit=crop"
+  "/bg3.png"
 ];
 
 const Home = () => {
@@ -61,17 +61,19 @@ const Home = () => {
           </div>
         ))}
         
-        <div className="relative z-10 text-center px-4">
-          <h1 className="text-2xl md:text-4xl font-serif mb-6 max-w-2xl mx-auto leading-tight text-[#D4AF37] animate-fade-in-up" style={{ animationDelay: '1.5s' }}>
-            Natural look. Seamless blend. Made for women.
-          </h1>
-          <button 
-            onClick={() => navigate('/products')}
-            className="px-8 py-3 border border-[#D4AF37] text-[#D4AF37] rounded-full hover:bg-[#D4AF37] hover:text-[#111111] transition-all duration-300 backdrop-blur-sm bg-white/5 animate-fade-in-up" style={{ animationDelay: '2.5s' }}
-          >
-            Shop now
-          </button>
-        </div>
+        {currentHeroIndex !== 2 && (
+          <div className="relative z-10 text-center px-4">
+            <h1 className="text-2xl md:text-4xl font-serif mb-6 max-w-2xl mx-auto leading-tight text-[#D4AF37] animate-fade-in-up" style={{ animationDelay: '1.5s' }}>
+              Natural look. Seamless blend. Made for women.
+            </h1>
+            <button 
+              onClick={() => navigate('/products')}
+              className="px-8 py-3 border border-[#D4AF37] text-[#D4AF37] rounded-full hover:bg-[#D4AF37] hover:text-[#111111] transition-all duration-300 backdrop-blur-sm bg-white/5 animate-fade-in-up" style={{ animationDelay: '2.5s' }}
+            >
+              Shop now
+            </button>
+          </div>
+        )}
 
         {/* Carousel controls */}
         <button onClick={prevSlide} className="absolute left-8 top-1/2 transform -translate-y-1/2 text-white/50 hover:text-white transition-colors z-10">
