@@ -28,7 +28,7 @@ const Products = () => {
       </div>
 
       {/* Filters and Toolbar */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row justify-between items-center border-t border-[#332A24] text-sm">
+      {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row justify-between items-center border-t border-[#332A24] text-sm">
         <div className="flex space-x-6 mb-4 sm:mb-0 text-[#A89F91]">
           <button className="flex items-center hover:text-[#D4AF37] transition-colors">Category <ChevronDown size={16} className="ml-1" /></button>
           <button className="flex items-center hover:text-[#D4AF37] transition-colors">Price <ChevronDown size={16} className="ml-1" /></button>
@@ -42,7 +42,7 @@ const Products = () => {
             <button className="p-1 hover:text-[#D4AF37] transition-colors"><List size={18} /></button>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Product Grid */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
@@ -55,12 +55,12 @@ const Products = () => {
                   alt={product.name} 
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                 />
-                <button 
+                {/* <button 
                   onClick={(e) => openQuickView(e, product)}
                   className="absolute bottom-4 right-4 bg-[#1F1916] p-3 rounded-full shadow-lg opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 hover:scale-110 text-[#D4AF37] border border-[#D4AF37] z-10"
                 >
                   <ShoppingBag size={20} />
-                </button>
+                </button> */}
               </div>
               <div className="text-center">
                 <h3 className="text-sm font-serif mb-1 group-hover:text-[#D4AF37] transition-colors text-[#EAEAEA]">{product.name}</h3>

@@ -49,3 +49,21 @@ h1, h2, h3, h4, h5, h6 {
 
 .delay-500 { animation-delay: 500ms; }
 .delay-1000 { animation-delay: 1000ms; }
+
+/* Global Button UX Improvements */
+button, .btn {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+button:active, .btn:active {
+  transform: scale(0.97);
+}
+
+button:focus-visible, .btn:focus-visible {
+  outline: 2px solid #D4AF37;
+  outline-offset: 2px;
+}
+

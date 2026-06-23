@@ -12,7 +12,7 @@ const heroImages = [
 
 const Home = () => {
   const navigate = useNavigate();
-  const [showStylistForm, setShowStylistForm] = useState(false);
+
   const [currentHeroIndex, setCurrentHeroIndex] = useState(0);
   const [quickViewProduct, setQuickViewProduct] = useState(null);
 
@@ -68,7 +68,7 @@ const Home = () => {
             </h1>
             <button 
               onClick={() => navigate('/products')}
-              className="px-8 py-3 border border-[#D4AF37] text-[#D4AF37] rounded-full hover:bg-[#D4AF37] hover:text-[#111111] transition-all duration-300 backdrop-blur-sm bg-white/5 animate-fade-in-up" style={{ animationDelay: '2.5s' }}
+              className="px-8 py-3 font-semibold uppercase tracking-wider border border-[#D4AF37] text-[#D4AF37] rounded-full hover:bg-[#D4AF37] hover:text-[#111111] hover:shadow-[0_0_15px_rgba(212,175,55,0.6)] transition-all duration-300 backdrop-blur-sm bg-white/5 animate-fade-in-up" style={{ animationDelay: '2.5s' }}
             >
               Shop now
             </button>
@@ -131,7 +131,7 @@ const Home = () => {
           <div className="mt-16 text-center">
             <button 
               onClick={() => navigate('/products')}
-              className="inline-block border border-[#D4AF37] text-[#D4AF37] px-10 py-4 font-semibold tracking-wider uppercase hover:bg-[#D4AF37] hover:text-[#111111] transition-colors backdrop-blur-sm bg-white/5"
+              className="inline-block border border-[#D4AF37] text-[#D4AF37] px-10 py-4 font-semibold tracking-wider uppercase rounded-full hover:bg-[#D4AF37] hover:text-[#111111] hover:shadow-[0_0_15px_rgba(212,175,55,0.6)] transition-all duration-300 backdrop-blur-sm bg-white/5"
             >
               View All Products
             </button>
@@ -139,71 +139,42 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Stylist Registration Section */}
-      <section className="py-24 bg-[#15110E]">
+      {/* Why Choose Us Section */}
+      <section className="py-20 bg-[#15110E]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <button 
-              onClick={() => setShowStylistForm(!showStylistForm)}
-              className="bg-[#D4AF37] text-[#111111] px-10 py-4 font-semibold tracking-wider uppercase hover:bg-[#C8A45D] transition-colors mb-12 shadow-lg"
-            >
-              Book Your Style Consultation
-            </button>
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-serif text-[#D4AF37] mb-4">Why Choose Us</h2>
+            <div className="w-16 h-px bg-[#D4AF37] mx-auto opacity-50"></div>
           </div>
-
-          <div className={`transition-all duration-500 overflow-hidden ${showStylistForm ? 'max-h-[1200px] opacity-100' : 'max-h-0 opacity-0'}`}>
-            <div className="bg-[#1F1916] p-8 md:p-12 border border-[#332A24] rounded-sm max-w-2xl mx-auto shadow-2xl">
-              <div className="text-center mb-8">
-                <h2 className="text-2xl font-serif text-[#D4AF37]">Stylist Registration</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+            <div className="p-8 border border-[#332A24] rounded-xl hover:border-[#D4AF37] hover:shadow-[0_0_20px_rgba(212,175,55,0.15)] transition-all duration-500 group bg-[#1F1916]">
+              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-[#15110E] flex items-center justify-center border border-[#332A24] group-hover:border-[#D4AF37] group-hover:scale-110 transition-all duration-500">
+                <span className="text-[#D4AF37] text-3xl">✨</span>
               </div>
-              
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm text-[#A89F91] mb-2">First name*</label>
-                    <input type="text" className="w-full border border-[#332A24] bg-[#15110E] text-[#EAEAEA] rounded px-4 py-3 focus:outline-none focus:border-[#D4AF37] placeholder-[#665D56] transition-colors" />
-                  </div>
-                  <div>
-                    <label className="block text-sm text-[#A89F91] mb-2">Last name*</label>
-                    <input type="text" className="w-full border border-[#332A24] bg-[#15110E] text-[#EAEAEA] rounded px-4 py-3 focus:outline-none focus:border-[#D4AF37] placeholder-[#665D56] transition-colors" />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm text-[#A89F91] mb-2">Email address*</label>
-                  <input type="email" className="w-full border border-[#332A24] bg-[#15110E] text-[#EAEAEA] rounded px-4 py-3 focus:outline-none focus:border-[#D4AF37] placeholder-[#665D56] transition-colors" />
-                </div>
-
-                <div>
-                  <label className="block text-sm text-[#A89F91] mb-2">Phone number*</label>
-                  <div className="flex">
-                    <select className="border border-[#332A24] rounded-l px-4 py-3 bg-[#1F1916] text-[#EAEAEA] focus:outline-none focus:border-[#D4AF37] border-r-0">
-                      <option>United States +1</option>
-                    </select>
-                    <input type="tel" className="w-full border border-[#332A24] rounded-r bg-[#15110E] text-[#EAEAEA] px-4 py-3 focus:outline-none focus:border-[#D4AF37] placeholder-[#665D56] transition-colors" />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm text-[#A89F91] mb-2">Salon or business name*</label>
-                  <input type="text" className="w-full border border-[#332A24] bg-[#15110E] text-[#EAEAEA] rounded px-4 py-3 focus:outline-none focus:border-[#D4AF37] placeholder-[#665D56] transition-colors" />
-                </div>
-
-                <div>
-                  <label className="block text-sm text-[#A89F91] mb-2">Upload your cosmetology license (JPG, PNG or PDF)*</label>
-                  <div className="border border-[#332A24] border-dashed rounded px-4 py-8 text-center cursor-pointer hover:bg-[#15110E]/50 transition-colors bg-[#15110E]">
-                    <span className="text-[#A89F91] text-sm">Click to upload or drag and drop</span>
-                  </div>
-                </div>
-
-                <button type="submit" className="w-full border border-[#D4AF37] text-[#D4AF37] py-4 rounded font-medium hover:bg-[#D4AF37] hover:text-[#111111] transition-colors mt-8 uppercase tracking-wider">
-                  Create my stylist account
-                </button>
-              </form>
+              <h3 className="text-xl font-serif text-[#D4AF37] mb-4">Premium Quality</h3>
+              <p className="text-[#A89F91] text-sm leading-relaxed">100% authentic raw Indian hair sourced directly from temples. Unprocessed, cuticles intact, and long-lasting.</p>
+            </div>
+            
+            <div className="p-8 border border-[#332A24] rounded-xl hover:border-[#D4AF37] hover:shadow-[0_0_20px_rgba(212,175,55,0.15)] transition-all duration-500 group bg-[#1F1916]">
+              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-[#15110E] flex items-center justify-center border border-[#332A24] group-hover:border-[#D4AF37] group-hover:scale-110 transition-all duration-500">
+                <span className="text-[#D4AF37] text-3xl">🎨</span>
+              </div>
+              <h3 className="text-xl font-serif text-[#D4AF37] mb-4">Versatile Styling</h3>
+              <p className="text-[#A89F91] text-sm leading-relaxed">Can be bleached, colored, curled, or straightened to match your desired look effortlessly while maintaining health.</p>
+            </div>
+            
+            <div className="p-8 border border-[#332A24] rounded-xl hover:border-[#D4AF37] hover:shadow-[0_0_20px_rgba(212,175,55,0.15)] transition-all duration-500 group bg-[#1F1916]">
+              <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-[#15110E] flex items-center justify-center border border-[#332A24] group-hover:border-[#D4AF37] group-hover:scale-110 transition-all duration-500">
+                <span className="text-[#D4AF37] text-3xl">🚚</span>
+              </div>
+              <h3 className="text-xl font-serif text-[#D4AF37] mb-4">Global Shipping</h3>
+              <p className="text-[#A89F91] text-sm leading-relaxed">We deliver our premium hair extensions worldwide with secure, trackable, and fast shipping options.</p>
             </div>
           </div>
         </div>
       </section>
+
+
 
       {/* Global Quick View Modal */}
       <QuickViewModal 

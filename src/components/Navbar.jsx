@@ -24,8 +24,8 @@ const Navbar = () => {
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
     { name: 'Products', path: '/products' },
-    { name: 'Contact', path: '/contact' },
     { name: 'Gallery', path: '/gallery' },
+    { name: 'Contact', path: '/contact' },
   ];
 
   return (
@@ -41,15 +41,21 @@ const Navbar = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8">
-            {navLinks.map((link) => (
+            {navLinks.map((link) => {
+              const isActive = location.pathname === link.path;
+              return (
               <Link
                 key={link.name}
                 to={link.path}
-                className="text-sm font-medium hover:text-primary transition-colors hover:scale-105 transform"
+                className={`text-sm font-medium transition-all duration-300 hover:scale-105 transform ${
+                  isActive 
+                    ? 'text-[#D4AF37] ' 
+                    : 'text-white hover:text-[#D4AF37]'
+                }`}
               >
                 {link.name}
               </Link>
-            ))}
+            )})}
           </div>
 
           {/* Icons */}
@@ -75,16 +81,22 @@ const Navbar = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-black/95 backdrop-blur-md absolute top-full left-0 w-full shadow-xl">
           <div className="px-4 pt-2 pb-6 space-y-1">
-            {navLinks.map((link) => (
+            {navLinks.map((link) => {
+              const isActive = location.pathname === link.path;
+              return (
               <Link
                 key={link.name}
                 to={link.path}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block px-3 py-3 text-base font-medium hover:bg-primary/20 hover:text-primary rounded-md transition-colors"
+                className={`block px-3 py-3 text-base font-medium rounded-md transition-colors ${
+                  isActive
+                    ? 'bg-[#D4AF37]/20 text-[#D4AF37] border-l-4 border-[#D4AF37]'
+                    : 'text-white hover:bg-[#D4AF37]/10 hover:text-[#D4AF37]'
+                }`}
               >
                 {link.name}
               </Link>
-            ))}
+            )})}
             {/* <div className="flex space-x-6 px-3 py-4 mt-2 border-t border-gray-800">
               <button className="hover:text-primary transition-colors"><Search size={20} /></button>
               <button className="hover:text-primary transition-colors"><User size={20} /></button>

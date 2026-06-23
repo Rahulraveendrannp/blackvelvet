@@ -116,10 +116,10 @@ const QuickViewModal = ({ isOpen, product, onClose }) => {
 
             {/* Action Buttons */}
             <div className="pt-4 flex flex-col gap-3">
-              <button className="w-full bg-[#15110E] text-[#D4AF37] border border-[#D4AF37] py-4 rounded hover:bg-[#D4AF37] hover:text-[#111111] transition-colors font-medium">
+              <button className="w-full bg-[#15110E] text-[#D4AF37] border border-[#D4AF37] py-4 rounded-full font-semibold uppercase tracking-wider hover:bg-[#D4AF37] hover:text-[#111111] hover:shadow-[0_0_15px_rgba(212,175,55,0.6)] transition-all duration-300">
                 Add to Cart
               </button>
-              <button className="w-full bg-[#D4AF37] text-[#111111] py-4 rounded hover:bg-[#C8A45D] transition-colors font-medium">
+              <button className="w-full bg-[#D4AF37] text-[#111111] py-4 rounded-full font-semibold uppercase tracking-wider hover:bg-[#C8A45D] hover:shadow-[0_0_15px_rgba(212,175,55,0.6)] transition-all duration-300">
                 Buy it now
               </button>
             </div>

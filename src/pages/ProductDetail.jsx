@@ -136,10 +136,10 @@ const ProductDetail = () => {
 
               {/* Action Buttons */}
               <div className="pt-6 flex flex-col sm:flex-row gap-4">
-                <button className="flex-1 bg-[#15110E] text-[#D4AF37] border border-[#D4AF37] py-4 rounded hover:bg-[#D4AF37] hover:text-[#111111] transition-colors font-medium">
+                <button className="flex-1 bg-[#15110E] text-[#D4AF37] border border-[#D4AF37] py-4 rounded-full font-semibold uppercase tracking-wider hover:bg-[#D4AF37] hover:text-[#111111] hover:shadow-[0_0_15px_rgba(212,175,55,0.6)] transition-all duration-300">
                   Add to Cart
                 </button>
-                <button className="flex-1 bg-[#D4AF37] text-[#111111] py-4 rounded hover:bg-[#C8A45D] transition-colors font-medium">
+                <button className="flex-1 bg-[#D4AF37] text-[#111111] py-4 rounded-full font-semibold uppercase tracking-wider hover:bg-[#C8A45D] hover:shadow-[0_0_15px_rgba(212,175,55,0.6)] transition-all duration-300">
                   Buy it now
                 </button>
               </div>
@@ -176,10 +176,10 @@ const ProductDetail = () => {
       </div>
 
       {/* Similar Products Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 border-t border-[#332A24] bg-[#15110E]">
+      <div className=" mx-auto px-4 sm:px-6 lg:px-12 py-16 border-t border-[#332A24] bg-[#15110E]">
         <h2 className="text-3xl font-serif mb-12 text-center text-[#D4AF37]">View Similar Products</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {products.filter(p => p.id !== product.id).slice(0, 4).map((simProduct) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+          {products.filter(p => p.id !== product.id).slice(0, 5).map((simProduct) => (
             <div key={simProduct.id} className="group cursor-pointer" onClick={() => {
               window.scrollTo(0, 0);
               navigate(`/product/${simProduct.id}`);
