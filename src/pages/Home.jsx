@@ -76,12 +76,12 @@ const Home = () => {
         )}
 
         {/* Carousel controls */}
-        <button onClick={prevSlide} className="absolute left-8 top-1/2 transform -translate-y-1/2 text-white/50 hover:text-white transition-colors z-10">
+        {/* <button onClick={prevSlide} className="absolute left-8 top-1/2 transform -translate-y-1/2 text-white/50 hover:text-white transition-colors z-10">
           <ChevronLeft size={32} />
         </button>
         <button onClick={nextSlide} className="absolute right-8 top-1/2 transform -translate-y-1/2 text-white/50 hover:text-white transition-colors z-10">
           <ChevronRight size={32} />
-        </button>
+        </button> */}
 
         {/* Carousel indicators */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 flex space-x-2">
