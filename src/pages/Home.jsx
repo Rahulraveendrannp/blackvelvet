@@ -173,8 +173,49 @@ const Home = () => {
           </div>
         </div>
       </section>
-
-
+      {/* Our Premium Product Collection */}
+      <section className="py-24 bg-[#1F1916]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h4 className="text-xs font-semibold tracking-widest uppercase text-[#A89F91] mb-4">Discover Quality</h4>
+            <h2 className="text-4xl font-serif text-[#D4AF37] mb-4">Our Premium Product Collection</h2>
+            <div className="w-16 h-px bg-[#D4AF37] mx-auto opacity-50"></div>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-[#15110E] p-8 border border-[#332A24] rounded-sm hover:border-[#D4AF37] transition-all group shadow-xl">
+              <h3 className="text-2xl font-serif text-[#EAEAEA] group-hover:text-[#D4AF37] mb-6 transition-colors text-center border-b border-[#332A24] pb-4">Single Drawn Collection</h3>
+              <ul className="space-y-4 text-[#A89F91] text-center font-medium">
+                <li>• Raw Hair Bundles</li>
+                <li>• Grey Hair Bundles</li>
+                <li>• Closures</li>
+                <li>• Frontals</li>
+              </ul>
+            </div>
+            
+            <div className="bg-[#15110E] p-8 border border-[#D4AF37]/50 rounded-sm hover:border-[#D4AF37] transition-all group shadow-xl relative transform md:-translate-y-4">
+              <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-[#D4AF37] text-[#111111] text-xs font-bold uppercase tracking-wider py-1 px-4 rounded-full">Most Popular</div>
+              <h3 className="text-2xl font-serif text-[#EAEAEA] group-hover:text-[#D4AF37] mb-6 transition-colors text-center border-b border-[#332A24] pb-4">Double Drawn Collection</h3>
+              <ul className="space-y-4 text-[#EAEAEA] text-center font-medium">
+                <li>• Double Drawn Bundles</li>
+                <li>• Double Drawn Grey Bundles</li>
+                <li>• Double Drawn Closures</li>
+                <li>• Double Drawn Frontals</li>
+              </ul>
+            </div>
+            
+            <div className="bg-[#15110E] p-8 border border-[#332A24] rounded-sm hover:border-[#D4AF37] transition-all group shadow-xl">
+              <h3 className="text-2xl font-serif text-[#EAEAEA] group-hover:text-[#D4AF37] mb-6 transition-colors text-center border-b border-[#332A24] pb-4">Premium Lace Collection</h3>
+              <ul className="space-y-4 text-[#A89F91] text-center font-medium">
+                <li>• HD Lace Closures</li>
+                <li>• Swiss Lace Closures</li>
+                <li>• HD Lace Frontals</li>
+                <li>• Swiss Lace Frontals</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Global Quick View Modal */}
       <QuickViewModal 

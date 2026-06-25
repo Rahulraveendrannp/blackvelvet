@@ -4,6 +4,16 @@ const Footer = () => {
   return (
     <footer className="bg-[#15110E] text-[#EAEAEA] py-16 border-t border-[#332A24] font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Brand Tagline Section */}
+        <div className="mb-16 border-b border-[#332A24] pb-12 text-center max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-serif text-[#D4AF37] mb-4">Black Velvet Indian Raw Hair</h2>
+          <p className="text-xl md:text-2xl italic text-[#EAEAEA] mb-6 font-serif">"Pure Hair. Pure Trust. Pure You."</p>
+          <p className="text-[#A89F91] text-lg leading-relaxed">
+            Delivering authentic South Indian Raw Hair with unmatched quality, craftsmanship, and heritage for customers worldwide.
+          </p>
+        </div>
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           
           {/* Column 1: Quick Links */}

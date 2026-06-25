@@ -56,16 +56,19 @@ const About = () => {
         <section className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <h4 className="text-xs font-semibold tracking-widest uppercase text-[#A89F91] mb-4">Our Promise</h4>
-            <h2 className="text-3xl md:text-4xl font-serif text-[#D4AF37]">What We Guarantee</h2>
+            <h2 className="text-3xl md:text-4xl font-serif text-[#D4AF37]">Why Customers Trust Black Velvet</h2>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {[
+              "50+ Years of Family Heritage",
+              "5th Generation Hair Business",
               "100% Natural & Unprocessed Hair",
               "Single Head Donor Collection",
-              "No Harsh Chemicals",
+              "No Harsh Chemicals Used",
               "No Salon Waste Hair",
-              "Premium Quality Assurance",
+              "Premium Quality Inspection",
+              "Ethically Sourced Temple Hair",
               "Worldwide Shipping"
             ].map((promise, index) => (
               <div key={index} className="flex items-center space-x-4 bg-[#15110E] p-6 rounded-sm shadow-lg border border-[#332A24] hover:border-[#D4AF37] transition-colors">
@@ -73,6 +76,35 @@ const About = () => {
                   <Check className="text-[#D4AF37]" size={24} />
                 </div>
                 <span className="text-lg font-medium text-[#EAEAEA]">{promise}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Process Section (New) */}
+        <section className="max-w-7xl mx-auto pt-16">
+          <div className="text-center mb-16">
+            <h4 className="text-xs font-semibold tracking-widest uppercase text-[#A89F91] mb-4">Our Process</h4>
+            <h2 className="text-3xl md:text-4xl font-serif text-[#D4AF37] mb-6">From Temple Collection to Global Export</h2>
+            <p className="max-w-3xl mx-auto text-lg leading-relaxed text-[#D1C9BE]">
+              At Black Velvet Indian Raw Hair, every bundle undergoes a carefully refined process to ensure exceptional quality, authenticity, and customer satisfaction. Combining generations of expertise with modern quality standards, we deliver premium South Indian Raw Hair to customers worldwide.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { num: 1, title: "Temple Hair Collection", desc: "Premium South Indian temple hair is ethically sourced and carefully selected from trusted collection channels. Every strand is chosen to ensure authenticity, purity, and superior quality." },
+              { num: 2, title: "Cleaning & Purification", desc: "The hair is gently cleansed and purified to remove impurities while preserving its natural strength, softness, and shine." },
+              { num: 3, title: "Sorting & Selection", desc: "Each bundle is meticulously sorted according to length, texture, color, and quality standards to ensure consistency and excellence." },
+              { num: 4, title: "Cuticle Alignment", desc: "Every strand is aligned in a single direction to minimize tangling, maintain smoothness, and enhance longevity." },
+              { num: 5, title: "Wefting & Craftsmanship", desc: "Skilled artisans create strong, durable wefts while preserving the hair's natural characteristics and integrity." },
+              { num: 6, title: "Texture Enhancement", desc: "Natural textures including Wavy, Deep Wavy, Straight, Bone Straight, Curly, and Deep Curly are carefully prepared to meet customer preferences while maintaining a natural appearance." },
+              { num: 7, title: "Quality Inspection", desc: "Every product undergoes rigorous quality checks for texture consistency, strength, shedding, and overall excellence to ensure premium quality in every bundle." },
+              { num: 8, title: "Luxury Packaging & Global Export", desc: "Finished products are securely packaged and prepared for worldwide delivery. We proudly serve salons, distributors, wholesalers, beauty brands, and individual customers across the globe." }
+            ].map((step) => (
+              <div key={step.num} className="bg-[#15110E] p-8 border-t-2 border-[#332A24] hover:border-[#D4AF37] transition-all group relative">
+                <div className="text-5xl font-serif text-[#332A24] group-hover:text-[#D4AF37]/20 absolute top-4 right-4 transition-colors">0{step.num}</div>
+                <h3 className="text-xl font-serif text-[#D4AF37] mb-3 relative z-10">{step.title}</h3>
+                <p className="text-sm text-[#A89F91] leading-relaxed relative z-10">{step.desc}</p>
               </div>
             ))}
           </div>
